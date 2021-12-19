@@ -1,0 +1,23 @@
+﻿  Building 'CACHEON' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping Debug\CACHEON.inf
+  Stamping [Version] section with DriverVer=12/19/2021,20.36.57.868
+  Source.cpp
+  CACHEON.vcxproj -> C:\Users\nikit\OneDrive\Рабочий стол\КурсачЭВМ\CACHEON\Debug\CACHEON.sys
+  Done Adding Additional Store
+  Successfully signed: C:\Users\nikit\OneDrive\ \\CACHEON\Debug\CACHEON.sys
+  
+  Driver is 'Universal'.
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  C:\Users\nikit\OneDrive\Рабочий стол\КурсачЭВМ\CACHEON\Debug\CACHEON\cacheon.cat
+  Done Adding Additional Store
+  Successfully signed: C:\Users\nikit\OneDrive\ \\CACHEON\Debug\CACHEON\cacheon.cat
+  

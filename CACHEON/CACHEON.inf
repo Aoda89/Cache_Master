@@ -1,0 +1,77 @@
+;
+; CACHEON.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System ; TODO: specify appropriate Class
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=CACHEON.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+CACHEON_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+CACHEON.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%CACHEON.DeviceDesc%=CACHEON_Device, Root\CACHEON ; TODO: edit hw-id
+
+[CACHEON_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+CACHEON.sys
+
+;-------------- Service installation
+[CACHEON_Device.NT.Services]
+AddService = CACHEON,%SPSVCINST_ASSOCSERVICE%, CACHEON_Service_Inst
+
+; -------------- CACHEON driver install sections
+[CACHEON_Service_Inst]
+DisplayName    = %CACHEON.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\CACHEON.sys
+
+;
+;--- CACHEON_Device Coinstaller installation ------
+;
+
+[CACHEON_Device.NT.CoInstallers]
+AddReg=CACHEON_Device_CoInstaller_AddReg
+CopyFiles=CACHEON_Device_CoInstaller_CopyFiles
+
+[CACHEON_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[CACHEON_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[CACHEON_Device.NT.Wdf]
+KmdfService =  CACHEON, CACHEON_wdfsect
+[CACHEON_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "CACHEON Installation Disk"
+CACHEON.DeviceDesc = "CACHEON Device"
+CACHEON.SVCDESC = "CACHEON Service"
