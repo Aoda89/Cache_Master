@@ -1,0 +1,23 @@
+﻿  Building 'CACHEOFF' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping Debug\CACHEOFF.inf
+  Stamping [Version] section with DriverVer=12/19/2021,20.42.25.640
+  Source.cpp
+  CACHEOFF.vcxproj -> C:\Users\nikit\OneDrive\Рабочий стол\КурсачЭВМ\CACHEOFF\Debug\CACHEOFF.sys
+  Done Adding Additional Store
+  Successfully signed: C:\Users\nikit\OneDrive\ \\CACHEOFF\Debug\CACHEOFF.sys
+  
+  Driver is 'Universal'.
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  C:\Users\nikit\OneDrive\Рабочий стол\КурсачЭВМ\CACHEOFF\Debug\CACHEOFF\cacheoff.cat
+  Done Adding Additional Store
+  Successfully signed: C:\Users\nikit\OneDrive\ \\CACHEOFF\Debug\CACHEOFF\cacheoff.cat
+  
